@@ -1,0 +1,71 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class HelloApplication{
+    + void start()
+    + {method} {static} void main()
+}
+
+class HelloController {
+        {field} - my_canvas : Canvas
+        {field} - gr : GraphicsContext
+        - {method} void onLineClick1()
+        - {method} void onRectClick1()
+        - {method} void onTriagleClick1()
+        - {method} void onCircleClick1()
+
+}
+
+abstract class Shapes {
+    {field} - ShapeColor : Color;
+    {abstract} {method} + String toString()
+    {abstract} {method} + void Draw()
+    {method} + Shapes()
+}
+
+class Line{
+    {field} - x1: double
+    {field} - y1: double
+    {field} - x2: double
+    {field} - y2: double
+    {method} + void Draw()
+    {method} + String toString()
+    {method} + void Line()
+}
+
+class Rectagle{
+    {field} - length : double
+    {field} - height : double
+    {method} + void Draw()
+    {method} + String toString()
+    {method} + void Rectagle()
+}
+
+class Triagle{
+    {field} - x1: double
+    {field} - x2: double
+    {field} - y1: double
+    {field} - y2: double
+    {field} - x3: double
+    {field} - y3: double
+    {method} + void Draw()
+    {method} + String toString()
+    {method} + void Triagle()
+}
+
+class Circle{
+    {field} - x1 : double
+    {field} - x2  : double
+    {field} - radius : double
+    {method} + void Draw()
+    {method} + String toString()
+    {method} + void Circle()
+}
+
+HelloApplication --> HelloController
+HelloController  --> Shapes
+Shapes <-- Circle
+Shapes <-- Line
+Shapes <-- Triagle
+Shapes <-- Rectagle
+@enduml
